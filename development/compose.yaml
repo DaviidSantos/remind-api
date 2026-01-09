@@ -1,0 +1,8 @@
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "development-db"
+      POSTGRES_DB: "remind_dev"
+    ports:
+      - "5432:5432"

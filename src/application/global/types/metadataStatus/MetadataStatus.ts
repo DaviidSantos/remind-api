@@ -1,1 +1,1 @@
-export type MetadataStatus = "active" | "suspended" | "inactive";
+export type MetadataStatus = "ACTIVE" | "SUSPENDED" | "INACTIVE";
