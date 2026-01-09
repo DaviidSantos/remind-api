@@ -4,11 +4,11 @@ export class Email {
   private VALIDATION_PATTERN =
     /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-  constructor(private readonly text: string) {
+  constructor(private text: string) {
     this.validate(text);
   }
 
-  public toString(): string {
+  public getValue(): string {
     return this.text;
   }
 
