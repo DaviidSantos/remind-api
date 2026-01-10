@@ -1,6 +1,8 @@
+import { Email } from "../../global/types/email/Email";
 import { Id } from "../../global/types/id/Id";
-import { Account } from "../model/Account";
+import { CreateAccountRequest } from "../request/CreateAccountRequest";
 
 export interface IAccountRepository {
-  create(data: Account): Promise<Id>;
+  create(data: CreateAccountRequest): Promise<Id>;
+  existsByEmail(email: Email): Promise<boolean>;
 }
