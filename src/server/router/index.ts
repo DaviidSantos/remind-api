@@ -1,22 +1,36 @@
 import { Router } from "express";
+import { makeCreateAccountController } from "../../application/account/factory/makeCreateAccountController";
 
 export class ServerRouter {
-  public static initializeRouter(): Router {
-    const router = Router();
+  private router: Router;
 
-    this.healthRoutes(router);
-
-    return router;
+  constructor() {
+    this.router = Router();
   }
 
-  private static healthRoutes(router: Router) {
+  public initializeRouter(): Router {
+    this.healthRoutes();
+    this.accountRoutes();
+
+    return this.router;
+  }
+
+  private healthRoutes(): void {
     const ENDPOINT = "/healthz";
 
-    router.get(ENDPOINT, (req, res) => {
+    this.router.get(ENDPOINT, (req, res) => {
       res.status(200).json({
         timestamp: Date.now(),
         status: "OK",
       });
     });
+  }
+
+  private accountRoutes(): void {
+    const ENDPOINT = "/accounts";
+
+    const createAccountController = makeCreateAccountController();
+
+    this.router.post(ENDPOINT, createAccountController.handle);
   }
 }

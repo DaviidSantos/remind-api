@@ -11,6 +11,7 @@ const input = {
     "John",
     "Doe",
     new Email("john.doe@email.com"),
+    new Password("5G7rz63D"),
     new Password("5G7rz63D")
   ),
 };

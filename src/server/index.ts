@@ -1,4 +1,4 @@
-import express, { Application, json } from "express";
+import express, { Application, json, Router } from "express";
 import helmet from "helmet";
 import { ServerRouter } from "./router";
 
@@ -24,6 +24,7 @@ export class ExpressServer {
   }
 
   private initializeRouter() {
-    this.server.use("/api/v1", ServerRouter.initializeRouter());
+    const router = new ServerRouter();
+    this.server.use("/api/v1", router.initializeRouter());
   }
 }

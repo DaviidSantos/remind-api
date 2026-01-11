@@ -6,6 +6,7 @@ export class CreateAccountRequest {
     public readonly firstName: string,
     public readonly lastName: string,
     public readonly email: Email,
-    public readonly password: Password
+    public readonly password: Password,
+    public readonly confirmationPassword: Password
   ) {}
 }
